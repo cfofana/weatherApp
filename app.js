@@ -12,10 +12,14 @@ const units = "imperial";
 const q = "q=London";
 const icon = "";
 const url = "https://api.openweathermap.org/data/2.5/weather?";
+const fullUrl = url+q+"&appid="+API_KEY;
 
 
 app.get('/weather', function(req,res){
-   // console.log(req.body);
+    https.get(fullUrl, (response)=>{
+        console.log("statusCode: " , response.statusCode);
+        console.log("headers: ", response.headers);
+    })
     
 })
 app.post('/weather', function(req, res){
