@@ -23,12 +23,14 @@ app.get('/weather', function(req,res){
             const temp = weatherData.main.temp;
             const description = weatherData.weather[0].description;
             let icon = weatherData.weather[0].icon;
+            icon = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
             //console.log("Temp is " + temp);
             //console.log("Description: "+ description);
             res.write("<h1>The temperature in London is: " + temp + "<sup>o</sup>C</h1>");
             res.write("<h4>The weather is described as " + description + ".</h4>");
+            res.write('<img src=' + icon + '>');
             res.send();
-           // res.write('<img src="http://openweathermap.org/img/wn"'+icon+"@2x.png>");
+            
         })
     })
     
